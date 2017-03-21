@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="need-words-app">
   <template>
@@ -17,12 +18,16 @@
           font-weight: 600;
         }
 
+        --serif-base: {
+          font-family: 'Georgia';
+          font-weight: 400;
+        }
+
       }
 
 
       h2, h3 {
         @apply --sans-serif-base;
-        color: var(--nw-darkgrey);
         margin: 0;
       }
 
@@ -38,11 +43,13 @@
 
       .block {
         width: 100%;
-        display: flex;
+        @apply --layout;
         align-items: center;
         justify-content: center;
         border: 8px solid transparent;
         box-sizing: border-box;
+        margin-bottom: 56px;
+        color: var(--nw-darkgrey);
       }
 
       .block.yellow {
@@ -71,6 +78,18 @@
         box-sizing: border-box;
         max-width: 1072px;
         padding: 40px 24px;
+        @apply --layout-vertical;
+      }
+
+      .block section.horizontal {
+        @apply --layout-horizontal;
+      }
+
+      article {
+        @apply --serif-base;
+        font-size: 30px;
+        line-height: 1.6;
+        margin: 40px 0;
       }
     </style>
 
@@ -110,7 +129,10 @@
         <header>
           <h2>Waarom woorden?</h2>
         </header>
-        <main></main>
+        <main>
+          <article>
+          Kan jij je product of dienst pitchen als geen ander, maar krijg je het niet goed op papier? Krijg je die website niet de lucht in omdat je met de teksten worstelt? Ben je net voor jezelf begonnen, maar snapt niemand wat je nu eigenlijk doet? Als het niet lukt om de missie, visie, of activiteiten van jouw organisatie of bedrijf goed te verwoorden, vraag mij er even bij. Ik schrijf jouw verhaal kernachtig op in een toon die bij je past. Dan doe ik waar ik goed in ben, en kan jij doen waar jij goed in bent.</article>
+        </main>
         <footer></footer>
       </section>
     </div>
@@ -140,7 +162,11 @@
         <header>
           <h2>Meer over mij</h2>
         </header>
-        <main></main>
+        <main>
+          <article>
+          Acht jaar werkte ik bij Vandejong Creative Agency. Eerst als communicatie-adviseur, later als copywriter. Ik dacht mee aan bijvoorbeeld Cineville, Unseen, De Pit, Nergens zoals hier (Ymere), Foam, Rabobank International en Vandejong zelf. Sinds 2013 werk ik als zelfstandige. Ik werkte samen met andere bureaus aan Easywalker, Het Parool, Heineken, CrowdAboutNow, Young Impact, en geheel op eigen houtje voor diverse opdrachtgevers. Ik heb ervaring met allerlei ‘talen’: van financieel en zakelijk, zacht en menselijk, jong en vlot, tot complex doch eenvoudig. Al mijn teksten kenmerken zich door bevlogenheid.
+          </article>
+        </main>
         <footer></footer>
       </section>
     </div>
@@ -163,7 +189,11 @@
         <header>
           <h2>Contact</h2>
         </header>
-        <main></main>
+        <main>
+          <article>
+          Wil je toch iets van een plan van aanpak en durf je me niet te bellen?<br>Stel je vraag en dan kom ik bij je terug.
+          </article>
+        </main>
         <footer></footer>
       </section>
     </div>
