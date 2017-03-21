@@ -354,7 +354,7 @@
       </section>
     </div>
 
-    <div class="block blue" id="call-me">
+    <div class="block blue" name="call-me">
       <section class="horizontal">
         <header class="flex2">
           <h3 id="callMe" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
@@ -366,7 +366,7 @@
       </section>
     </div>
 
-    <div class="block yellow" id="why">
+    <div class="block yellow" name="why">
       <section>
         <header>
           <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-input="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
@@ -382,7 +382,7 @@
       </section>
     </div>
 
-    <div class="block grey double-padding" id="how">
+    <div class="block grey double-padding" name="how">
       <section>
         <header>
           <h2 id="howHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
@@ -413,7 +413,7 @@
       </section>
     </div>
 
-    <div class="block blue" id="action">
+    <div class="block blue" name="action">
       <section class="horizontal">
         <header class="flex2">
           <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
@@ -455,7 +455,7 @@
       </section>
     </div>
 
-    <div class="block" id="testimonials">
+    <div class="block" name="testimonials">
       <section>
         <content-slider
           style$="height:[[contentHeight]]px"
@@ -503,7 +503,7 @@
       </section>
     </div>
 
-    <div class="block green" id="cases">
+    <div class="block green" name="about">
       <section>
         <header>
           <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
@@ -519,24 +519,40 @@
 
     <!-- foto -->
 
-    <div class="block grey" id="contact">
+    <div class="block grey" name="contact">
       <section>
+
+
         <header>
           <h2 id="contactHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.contactHeader}}</h2>
         </header>
-        <main>
-          <article id="contactArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
-            {{siteContent.contactArticle}}
-          </article>
 
-          <input type="text" placeholder="name">
-          <input type="text" placeholder="email">
-          <textarea placeholder="message"></textarea>
+        <template is="dom-if" if="[[!messageSent]]">
 
-        </main>
-        <footer>
-          <button id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>     
-        </footer>
+          <main>
+            <article id="contactArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              {{siteContent.contactArticle}}
+            </article>
+
+            <input type="text" placeholder="name" id="contactName">
+            <input type="text" placeholder="email" id="contactEmail">
+            <textarea placeholder="message" id="contactMessage"></textarea>
+
+          </main>
+          <footer>
+            <button on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
+          </footer>
+
+        </template>
+
+        <template is="dom-if" if="[[messageSent]]">
+          <main>
+            <article id="contactArticleSent" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              {{siteContent.contactArticleSent}}
+            </article>
+          </main>
+        </template>
+
       </section>
     </div>
 
@@ -583,6 +599,11 @@
           computed: '_computeTestimonialNavItems(numberOfTestimonials)'
         },
 
+        messageSent: {
+          type: Boolean,
+          value: false
+        }
+
       },
       observers: [
         '_updateContentSliderHeightOnDatabaseInput(siteContent.testimonial1)'
@@ -628,8 +649,20 @@
       _signOut: function () {
         this.$$('#firebase-auth').signOut()
       },
+
       _updateTextOfSubproperty: function (evt) {
         this.set('siteContent.' + evt.target.id, evt.srcElement.computedName)
+      },
+
+      _sendMessage: function (evt) {
+        var formData = {
+          name: this.$.contactName.value,
+          email: this.$.contactEmail.value,
+          message: this.$.contactMessage.value,          
+        }
+        this.messageSent = true;
+        console.info('formData', formData);
+        //push to firebase!
       }
 
     });
