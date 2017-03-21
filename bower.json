@@ -3,7 +3,8 @@
   "description": "Need Words Website for Marieke Kitzen",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0"
+    "polymer": "Polymer/polymer#^1.8.0",
+    "content-slider": "lotsofpeople/content-slider"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
