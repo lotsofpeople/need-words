@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
 <link rel="import" href="../../bower_components/app-route/app-location.html">
 
@@ -649,8 +650,7 @@
           message: this.$$('#contactMessage').value,          
         }
         this.messageSent = true;
-        console.info('formData', formData);
-        //push to firebase!
+        firebase.database().ref("messages").push(formData)
       },
 
       gotoAnchor: function(evt) {
