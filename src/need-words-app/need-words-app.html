@@ -55,13 +55,12 @@
         justify-content: center;
         border: 8px solid transparent;
         box-sizing: border-box;
-        margin-bottom: 56px;
         color: var(--nw-darkgrey);
         position: relative;
       }
 
-      .double-padding {
-        padding-bottom: 48px;
+      .block:not(:last-of-type) {
+        margin-bottom: 56px;        
       }
 
       .block.yellow {
@@ -94,6 +93,10 @@
         top: -112px;
         background-color: var(--nw-darkblue);
         content: '';
+      }
+
+      .double-padding {
+        padding-bottom: 48px;
       }
 
       .block section {
