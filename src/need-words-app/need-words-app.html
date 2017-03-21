@@ -573,6 +573,12 @@
 
       },
 
+      attached: function() {
+        window.addEventListener('resize', (function() {
+          this.$$('content-slider').updateContentHeight();
+        }).bind(this))
+      },
+
       _handleTapTestimonialNavItem: function(evt) {
         this.currentTestimonialIndex = evt.model.index;
       },
