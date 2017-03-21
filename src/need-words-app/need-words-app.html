@@ -206,8 +206,9 @@
 
       content-slider {
         width: 100%;
-        height: 400px;
         border: 0px solid red;
+        height: 0;
+        transition: 0.3s all;
         position: relative;
         font-size: 24px;
         font-weight: bold;
@@ -239,7 +240,7 @@
 
       #testimonials-nav {
         list-style: none;
-        margin: 0;
+        margin: 24px 0 0 0;
         padding: 0;
         @apply --layout;
         @apply --layout-center;
@@ -439,9 +440,11 @@
     <div class="block" id="testimonials">
       <section>
         <content-slider
+          style$="height:[[contentHeight]]px"
           current-index="{{currentTestimonialIndex}}"
           number-of-slides="{{numberOfTestimonials}}"
           animation-duration="250"
+          content-height="{{contentHeight}}"
         >
           <div>
             <blockquote>De woorden van Need Words waren een feest van herkenning. Ik kreeg niet alleen een tekst, het gaf me nieuwe focus in een chaotische tijd</blockquote>
