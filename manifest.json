@@ -1,7 +1,7 @@
 {
-  "name": "need-words",
-  "short_name": "need-words",
-  "description": "Need Words Website for Marieke Kitzen",
+  "name": "Need Words?",
+  "short_name": "Need Words?",
+  "description": "Need Words?",
   "start_url": "/",
   "display": "standalone"
 }

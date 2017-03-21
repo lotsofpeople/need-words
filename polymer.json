@@ -1,0 +1,17 @@
+{
+  "entrypoint": "/",
+  "shell": "src/need-words-app/need-words-app.html",
+  "fragments": [
+    "src/need-words-app/need-words-app.html"
+  ],
+  "sourceGlobs": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json",
+    "index.html"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}
