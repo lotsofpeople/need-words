@@ -5,9 +5,166 @@
     <style>
       :host {
         display: block;
+        --nw-yellow: #FFE164;
+        --nw-blue: #79C9FF;
+        --nw-darkblue: #38AFFF;
+        --nw-grey: #E5E5E5;
+        --nw-green: #47D6B0;
+        --nw-darkgrey: #1E3746;
+
+        --sans-serif-base: {
+          font-family: 'Campton';
+          font-weight: 600;
+        }
+
+      }
+
+
+      h2, h3 {
+        @apply --sans-serif-base;
+        color: var(--nw-darkgrey);
+      }
+
+      h2 {
+        font-size: 60px;
+        line-height: 1.2;
+      }
+
+      h3 {
+        font-size: 32px;
+        line-height: 1.4;
+      }
+
+      .block {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 8px solid transparent;
+        box-sizing: border-box;
+      }
+
+      .block.yellow {
+        background-color: var(--nw-yellow);
+      }
+
+      .block.blue {
+        background-color: var(--nw-blue);
+        border-color: var(--nw-darkblue);
+      }
+
+      .block.grey {
+        background-color: var(--nw-grey);
+      }
+
+      .block.green {
+        background-color: var(--nw-green);
+      }
+
+      .block.blue {
+        background-color: var(--nw-blue);
+      }
+
+      .block section {
+        flex: 1;
+        box-sizing: border-box;
+        max-width: 1024px;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+
+
+    <div class="block blue" id="intro">
+      <section>
+        <header>
+          <h3>Als je niet in 100 woorden kunt vertellen wat je doet, word je nooit succesvol.</h3>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block yellow" id="header">
+      <section>
+        <header>
+          <h2>Goed ondernemen begint met een goed verhaal. Wie ben je? Wat doe je? En vooral: Waar sta je voor? </h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block blue" id="call-me">
+      <section>
+        <header>
+          <h3>Ja, ik wil een goed verhaal<br>bel met 06 - 48081027</h3>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block yellow" id="why">
+      <section>
+        <header>
+          <h2>Waarom woorden?</h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block grey" id="how">
+      <section>
+        <header>
+          <h2>Dit krijg je</h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block blue" id="action">
+      <section>
+        <header>
+          <h3>En dat alles voor slechts een schamel €1250?</h3>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <div class="block green" id="cases">
+      <section>
+        <header>
+          <h2>Meer over mij</h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+
+    <!-- testimonials -->
+
+    <div class="block green" id="about">
+      <section>
+        <header>
+          <h2>Hoe ziet dat eruit?</h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
+    <!-- foto -->
+
+    <div class="block grey" id="contact">
+      <section>
+        <header>
+          <h2>Contact</h2>
+        </header>
+        <main></main>
+        <footer></footer>
+      </section>
+    </div>
   </template>
 
   <script>
