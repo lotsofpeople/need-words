@@ -11,6 +11,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="/bower_components/polymerfire/firebase-app.html">
 
     <link rel="import" href="/src/need-words-app/need-words-app.html">
 
@@ -22,6 +23,15 @@
 
   </head>
   <body>
+
+    <firebase-app
+      auth-domain="need-words.firebaseapp.com"
+      database-url="https://need-words.firebaseio.com"
+      api-key="AIzaSyCCp0rVez-ln1s1FKJDodobkZPBDucBB3E"
+      storage-bucket="need-words.appspot.com"
+      messaging-sender-id="613027304350">
+    </firebase-app> 
+        
     <need-words-app></need-words-app>
   </body>
 </html>

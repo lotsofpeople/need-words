@@ -3,7 +3,13 @@
   "description": "Need Words Website for Marieke Kitzen",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0"
+    "polymer": "Polymer/polymer#^1.8.0",
+    "polymerfire": "^0.10.3",
+    "paper-button": "^1.0.14",
+    "paper-dialog": "^1.1.0",
+    "login-fire": "^0.1.5",
+    "paper-input": "^1.1.23",
+    "app-route": "PolymerElements/app-route"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
