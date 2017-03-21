@@ -170,7 +170,7 @@
       button {
         opacity: 1.00;
 
-        background: var(--nw-yellow);
+        background-color: var(--nw-yellow);
         box-shadow: 0px 6px 0px var(--nw-darkblue);
         color: var(--nw-darkblue);
 
@@ -186,10 +186,16 @@
         border: 0;
         cursor: pointer;
         white-space: nowrap;
+        outline: none;
+      }
+
+      button:active, button.blue:active {
+        box-shadow: none;
+        transform: translateY(6px);
       }
 
       button.blue {
-        background: var(--nw-darkblue);
+        background-color: var(--nw-darkblue);
         box-shadow: 0px 6px 0px white;
         color: white;
       }
@@ -485,7 +491,7 @@
       </section>
     </div>
 
-    <div class="block green" id="about">
+    <div class="block green" id="cases">
       <section>
         <header>
           <h2 contenteditable$="[[signedIn]]">{{siteContent.casesHeader}}</h2>
