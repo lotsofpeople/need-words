@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
+<link rel="import" href="need-words-logo.html">
+
 <dom-module id="need-words-app">
   <template>
     <style>
@@ -177,6 +179,10 @@
         max-width: calc(66%);
         padding-right: 26px;
       }
+
+      need-words-logo {
+        margin-bottom: 26px;
+      }
     </style>
 
 
@@ -194,6 +200,7 @@
     <div class="block yellow double-padding" id="header">
       <section>
         <header>
+          <need-words-logo></need-words-logo>
           <h2>Goed ondernemen begint met een goed verhaal. Wie ben je? Wat doe je? En vooral: Waar sta je voor? </h2>
         </header>
         <main></main>
@@ -333,6 +340,7 @@
       </section>
     </div>
   </template>
+
 
   <script>
     Polymer({
