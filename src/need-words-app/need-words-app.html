@@ -5,6 +5,7 @@
 <link rel="import" href="need-words-logo.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
@@ -224,9 +225,6 @@
         }
       }
 
-      content-slider div {
-      }
-
       blockquote {
         @apply --serif-base;
         font-style: italic;
@@ -292,6 +290,7 @@
 
     <app-location
       route="{{route}}"
+      use-hash-as-path
     ></app-location>
 
     <app-route
@@ -336,7 +335,7 @@
       <section>
         <header>
           <need-words-logo></need-words-logo>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.header}}</h2>
+          <h2 id="header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.header}}</h2>
         </header>
         <main></main>
         <footer></footer>
@@ -346,10 +345,11 @@
     <div class="block blue" id="call-me">
       <section class="horizontal">
         <header class="flex2">
-          <h3 contenteditable$="[[signedIn]]">{{siteContent.callMe}}<br>{{siteContent.callNumber}}</h3>
+          <h3 id="callMe" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
+          <h3 id="callNumber" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callNumber}}</h3>
         </header>
         <footer>
-          <button contenteditable$="[[signedIn]]">{{siteContent.callAlternative}}</button>          
+          <button id="callAlternative" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
         </footer>
       </section>
     </div>
@@ -357,15 +357,15 @@
     <div class="block yellow" id="why">
       <section>
         <header>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.whyHeader}}</h2>
+          <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-input="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
         </header>
         <main>
-          <article contenteditable$="[[signedIn]]">
+          <article id="whyArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
             {{siteContent.whyArticle}}
           </article>
         </main>
         <footer>
-          <button contenteditable$="[[signedIn]]" class="blue">{{siteContent.whyButton}}</button>          
+          <button id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
         </footer>
       </section>
     </div>
@@ -373,25 +373,25 @@
     <div class="block grey double-padding" id="how">
       <section>
         <header>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.howHeader}}</h2>
+          <h2 id="howHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.step1Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="step1Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step1Header}}</h6>
+              <article id="step1Article" contenteditable$="[[signedIn]]">
                 {{siteContent.step1Article}}
               </article>
             </li>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.step2Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="step2Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step2Header}}</h6>
+              <article id="step2Article" contenteditable$="[[signedIn]]">
                 {{siteContent.step2Article}}
               </article>              
             </li>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.step3Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="step3Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step3Header}}</h6>
+              <article id="step3Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
                 {{siteContent.step3Article}}
               </article>                 
             </li>            
@@ -404,10 +404,10 @@
     <div class="block blue" id="action">
       <section class="horizontal">
         <header class="flex2">
-          <h3 contenteditable$="[[signedIn]]">{{siteContent.actionHeader}}</h3>
+          <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
         </header>
         <footer>
-          <button contenteditable$="[[signedIn]]">{{siteContent.actionButton}}</button>
+          <button id="actionButton" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
         </footer>
       </section>
     </div>
@@ -415,25 +415,25 @@
     <div class="block green" id="cases">
       <section>
         <header>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.casesHeader}}</h2>
+          <h2 id="casesHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.casesHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.case1Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="case1Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case1Header}}</h6>
+              <article id="case1Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
                 {{siteContent.case1Article}}
               </article>
             </li>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.case2Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="case2Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case2Header}}</h6>
+              <article id="case2Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
                 {{siteContent.case2Article}}
               </article>              
             </li>
             <li>
-              <h6 contenteditable$="[[signedIn]]">{{siteContent.case3Header}}</h6>
-              <article contenteditable$="[[signedIn]]">
+              <h6 id="case3Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case3Header}}</h6>
+              <article id="case3Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
                 {{siteContent.case3Article}}
               </article>                  
             </li>            
@@ -453,31 +453,31 @@
           content-height="{{contentHeight}}"
         >
           <div>
-            <blockquote>De woorden van Need Words waren een feest van herkenning. Ik kreeg niet alleen een tekst, het gaf me nieuwe focus in een chaotische tijd</blockquote>
+            <blockquote id="testimonial1" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial1}}</blockquote>
             <need-words-avatar
-              name="Marcel C. de Vries"
-              image-url="https://i.vimeocdn.com/portrait/3843863_300x300"
+              name="{{siteContent.testimonial1Name}}"
+              image-url="{{siteContent.testimonial1PicUrl}}"
+            ></need-words-avatar>            
+          </div>
+          <div>
+            <blockquote id="testimonial2" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial2}}</blockquote>
+            <need-words-avatar
+              name="{{siteContent.testimonial2Name}}"
+              image-url="{{siteContent.testimonial2PicUrl}}"
             ></need-words-avatar>
           </div>
           <div>
-            <blockquote>De woorden van Need Words waren een feest van herkenning. Ik kreeg niet alleen een tekst, het gaf me nieuwe focus in een chaotische tijd</blockquote>
+            <blockquote id="testimonial3" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial3}}</blockquote>
             <need-words-avatar
-              name="Marcel C. de Vries"
-              image-url="https://i.vimeocdn.com/portrait/3843863_300x300"
+              name="{{siteContent.testimonial3Name}}"
+              image-url="{{siteContent.testimonial3PicUrl}}"
             ></need-words-avatar>
           </div>
           <div>
-            <blockquote>De woorden van Need Words waren een feest van herkenning. Ik kreeg niet alleen een tekst, het gaf me nieuwe focus in een chaotische tijd</blockquote>
+            <blockquote id="testimonial4" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial4}}</blockquote>
             <need-words-avatar
-              name="Marcel C. de Vries"
-              image-url="https://i.vimeocdn.com/portrait/3843863_300x300"
-            ></need-words-avatar>
-          </div>
-          <div>
-            <blockquote>De woorden van Need Words waren een feest van herkenning. Ik kreeg niet alleen een tekst, het gaf me nieuwe focus in een chaotische tijd</blockquote>
-            <need-words-avatar
-              name="Marcel C. de Vries"
-              image-url="https://i.vimeocdn.com/portrait/3843863_300x300"
+              name="{{siteContent.testimonial4Name}}"
+              image-url="{{siteContent.testimonial4PicUrl}}"
             ></need-words-avatar>
           </div>
         </content-slider>
@@ -494,10 +494,10 @@
     <div class="block green" id="cases">
       <section>
         <header>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.aboutHeader}}</h2>
+          <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
         </header>
         <main>
-          <article contenteditable$="[[signedIn]]">
+          <article id="aboutArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
             {{siteContent.aboutArticle}}
           </article>
         </main>
@@ -510,10 +510,10 @@
     <div class="block grey" id="contact">
       <section>
         <header>
-          <h2 contenteditable$="[[signedIn]]">{{siteContent.contactHeader}}</h2>
+          <h2 id="contactHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.contactHeader}}</h2>
         </header>
         <main>
-          <article contenteditable$="[[signedIn]]">
+          <article id="contactArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
             {{siteContent.contactArticle}}
           </article>
 
@@ -523,7 +523,7 @@
 
         </main>
         <footer>
-          <button contenteditable$="[[signedIn]]" class="blue">{{siteContent.contactButton}}</button>     
+          <button id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>     
         </footer>
       </section>
     </div>
@@ -572,6 +572,12 @@
         },
 
       },
+      observers: [
+        '_updateContentSliderHeightOnDatabaseInput(siteContent.testimonial1)'
+      ],
+      _updateContentSliderHeightOnDatabaseInput: function () {
+        this.$$('content-slider').updateContentHeight();
+      },
 
       attached: function() {
         window.addEventListener('resize', (function() {
@@ -609,6 +615,9 @@
 
       _signOut: function () {
         this.$$('#firebase-auth').signOut()
+      },
+      _updateTextOfSubproperty: function (evt) {
+        this.set('siteContent.' + evt.target.id, evt.srcElement.computedName)
       }
 
     });
