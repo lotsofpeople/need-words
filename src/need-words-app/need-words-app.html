@@ -2,8 +2,13 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/content-slider/content-slider.html">
 <link rel="import" href="need-words-avatar.html">
-
 <link rel="import" href="need-words-logo.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/login-fire/login-fire.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
 
 <dom-module id="need-words-app">
   <template>
@@ -281,14 +286,44 @@
       }*/
     </style>
 
+    <app-location
+      route="{{route}}"
+    ></app-location>
+
+    <app-route
+      route="{{route}}"
+      pattern="/login"
+      active="{{loginPageActive}}"
+    ></app-route>    
+
+    <firebase-document
+      path="/site-content"
+      data="{{siteContent}}">
+    </firebase-document>
+
+    <template is="dom-if" if="[[loginPageActive]]">
+      <paper-button hidden$="[[signedIn]]" on-tap="_openAuthDialog">Sign in</paper-button>
+      <paper-button hidden$="[[!signedIn]]" on-tap="_signOut">Sign out</paper-button>
+
+      <paper-dialog
+        id="auth-dialog"
+        always-on-top
+        >
+        <login-fire id="firebase-auth" horizontal email-password google user="{{user}}" signed-in="{{signedIn}}"></login-fire>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+        </div>
+      </paper-dialog>
+    </template>
+    
 
 <!--     <div class="block blue" id="intro">
       <section class="horizontal">
         <header class="flex2">
-          <h3>Als je niet in 100 woorden kunt vertellen wat je doet, word je nooit succesvol.</h3>
+          <h3 contenteditable$="[[signedIn]]">{{siteContent.intro}}</h3>
         </header>
         <footer>
-          <button>O nee, help!</button>
+          <button contenteditable$="[[signedIn]]">{{siteContent.introButton}}</button>
         </footer>
       </section>
     </div> -->
@@ -297,7 +332,7 @@
       <section>
         <header>
           <need-words-logo></need-words-logo>
-          <h2>Goed ondernemen begint met een goed verhaal. Wie ben je? Wat doe je? En vooral: Waar sta je voor? </h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.header}}</h2>
         </header>
         <main></main>
         <footer></footer>
@@ -307,10 +342,10 @@
     <div class="block blue" id="call-me">
       <section class="horizontal">
         <header class="flex2">
-          <h3>Ja, ik wil een goed verhaal<br>bel met 06 - 48081027</h3>
+          <h3 contenteditable$="[[signedIn]]">{{siteContent.callMe}}<br>{{siteContent.callNumber}}</h3>
         </header>
         <footer>
-          <button>Of mail me</button>          
+          <button contenteditable$="[[signedIn]]">{{siteContent.callAlternative}}</button>          
         </footer>
       </section>
     </div>
@@ -318,14 +353,15 @@
     <div class="block yellow" id="why">
       <section>
         <header>
-          <h2>Waarom woorden?</h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.whyHeader}}</h2>
         </header>
         <main>
-          <article>
-          Kan jij je product of dienst pitchen als geen ander, maar krijg je het niet goed op papier? Krijg je die website niet de lucht in omdat je met de teksten worstelt? Ben je net voor jezelf begonnen, maar snapt niemand wat je nu eigenlijk doet? Als het niet lukt om de missie, visie, of activiteiten van jouw organisatie of bedrijf goed te verwoorden, vraag mij er even bij. Ik schrijf jouw verhaal kernachtig op in een toon die bij je past. Dan doe ik waar ik goed in ben, en kan jij doen waar jij goed in bent.</article>
+          <article contenteditable$="[[signedIn]]">
+            {{siteContent.whyArticle}}
+          </article>
         </main>
         <footer>
-          <button class="blue">Ik weet genoeg</button>          
+          <button contenteditable$="[[signedIn]]" class="blue">{{siteContent.whyButton}}</button>          
         </footer>
       </section>
     </div>
@@ -333,27 +369,27 @@
     <div class="block grey double-padding" id="how">
       <section>
         <header>
-          <h2>Dit krijg je</h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.howHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6>Stap 1</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.step1Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.step1Article}}
               </article>
             </li>
             <li>
-              <h6>Stap 2</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
-              </article>
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.step2Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.step2Article}}
+              </article>              
             </li>
             <li>
-              <h6>Stap 3</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
-              </article>
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.step3Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.step3Article}}
+              </article>                 
             </li>            
           </ol>
         </main>
@@ -364,10 +400,10 @@
     <div class="block blue" id="action">
       <section class="horizontal">
         <header class="flex2">
-          <h3>En dat alles voor slechts een schamel €1250?</h3>
+          <h3 contenteditable$="[[signedIn]]">{{siteContent.actionHeader}}</h3>
         </header>
         <footer>
-          <button>Geen geld</button>
+          <button contenteditable$="[[signedIn]]">{{siteContent.actionButton}}</button>
         </footer>
       </section>
     </div>
@@ -375,11 +411,11 @@
     <div class="block green" id="cases">
       <section>
         <header>
-          <h2>Meer over mij</h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.casesHeader}}</h2>
         </header>
         <main>
-          <article>
-          Acht jaar werkte ik bij Vandejong Creative Agency. Eerst als communicatie-adviseur, later als copywriter. Ik dacht mee aan bijvoorbeeld Cineville, Unseen, De Pit, Nergens zoals hier (Ymere), Foam, Rabobank International en Vandejong zelf. Sinds 2013 werk ik als zelfstandige. Ik werkte samen met andere bureaus aan Easywalker, Het Parool, Heineken, CrowdAboutNow, Young Impact, en geheel op eigen houtje voor diverse opdrachtgevers. Ik heb ervaring met allerlei ‘talen’: van financieel en zakelijk, zacht en menselijk, jong en vlot, tot complex doch eenvoudig. Al mijn teksten kenmerken zich door bevlogenheid.
+          <article contenteditable$="[[signedIn]]">
+            {{siteContent.casesArticle}}
           </article>
         </main>
         <footer></footer>
@@ -435,27 +471,27 @@
     <div class="block green" id="about">
       <section>
         <header>
-          <h2>Hoe ziet dat eruit?</h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.aboutHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6>Case 1</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.aboutCase1Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.aboutCase1Article}}
               </article>
             </li>
             <li>
-              <h6>Case 2</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
-              </article>
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.aboutCase2Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.aboutCase2Article}}
+              </article>              
             </li>
             <li>
-              <h6>Case 3</h6>
-              <article>
-                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
-              </article>
+              <h6 contenteditable$="[[signedIn]]">{{siteContent.aboutCase3Header}}</h6>
+              <article contenteditable$="[[signedIn]]">
+                {{siteContent.aboutCase3Article}}
+              </article>                  
             </li>            
           </ol>
         </main>
@@ -467,18 +503,19 @@
     <div class="block grey" id="contact">
       <section>
         <header>
-          <h2>Contact</h2>
+          <h2 contenteditable$="[[signedIn]]">{{siteContent.contactHeader}}</h2>
         </header>
         <main>
-          <article>
-          Wil je toch iets van een plan van aanpak en durf je me niet te bellen?<br>Stel je vraag en dan kom ik bij je terug.
+          <article contenteditable$="[[signedIn]]">
+            {{siteContent.contactArticle}}
           </article>
         </main>
         <footer>
-          <button class="blue">Verstuur</button>          
+          <button contenteditable$="[[signedIn]]" class="blue">{{siteContent.contactButton}}</button>     
         </footer>
       </section>
     </div>
+
   </template>
 
 
@@ -498,10 +535,29 @@
           value: 0
         },
 
+        siteContent: {
+          type: Object
+        },
+        
+        signedIn: {
+          type: Boolean,
+          value: false,
+          observer: '_loginSuccesful'
+        },
+        
+        route: {
+          type: Object          
+        },
+        
+        loginPageActive: {
+          type: Boolean,
+          value: false          
+        },
+
         _testomonialNavItems: {
           type: Array,
           computed: '_computeTestimonialNavItems(numberOfTestimonials)'
-        }
+        },
 
       },
 
@@ -519,6 +575,22 @@
 
       _navItemActive: function(index, currentTestimonialIndex) {
         return index === currentTestimonialIndex;
+      },
+
+      _loginSuccesful: function (signedIn) {
+        if(signedIn) return this._closeAuthDialog()
+      },
+
+      _openAuthDialog: function() {
+        this.$$('#auth-dialog').open()
+      },
+
+      _closeAuthDialog: function() {
+        this.$$('#auth-dialog').close()
+      },
+
+      _signOut: function () {
+        this.$$('#firebase-auth').signOut()
       }
 
     });
