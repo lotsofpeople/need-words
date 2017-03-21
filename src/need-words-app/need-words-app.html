@@ -290,7 +290,6 @@
 
     <app-location
       route="{{route}}"
-      use-hash-as-path
     ></app-location>
 
     <app-route
@@ -305,18 +304,31 @@
     </firebase-document>
 
     <template is="dom-if" if="[[loginPageActive]]">
-      <paper-button hidden$="[[signedIn]]" on-tap="_openAuthDialog">Sign in</paper-button>
-      <paper-button hidden$="[[!signedIn]]" on-tap="_signOut">Sign out</paper-button>
 
       <paper-dialog
         id="auth-dialog"
         always-on-top
+        modal
+        opened
         >
-        <login-fire id="firebase-auth" horizontal email-password google user="{{user}}" signed-in="{{signedIn}}"></login-fire>
-        <div class="buttons">
-          <paper-button dialog-dismiss>Cancel</paper-button>
-        </div>
+
+        <template is="dom-if" if="[[!signedIn]]">
+          <login-fire
+            id="firebase-auth"
+            horizontal
+            email-password
+            no-sign-up
+            user="{{user}}"
+            signed-in="{{signedIn}}"
+          ></login-fire>
+        </template>
+
+        <template is="dom-if" if="[[signedIn]]">
+          <p><paper-button on-tap="_signOut">Sign out</paper-button></p>
+        </template>
+
       </paper-dialog>
+
     </template>
     
 
