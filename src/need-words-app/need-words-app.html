@@ -128,16 +128,50 @@
         background-color: white;
         content: '';
       }
+
+      button {
+      opacity: 1.00;
+
+      background: var(--nw-yellow);
+      box-shadow: 0px 6px 0px var(--nw-darkblue);
+      color: var(--nw-blue);
+
+      border-radius: 4px;
+
+      @apply --sans-serif-base;
+      font-size: 32px;
+      line-height: 1;
+
+      height: 72px;
+      box-sizing: border-box;
+      padding: 0 68px;
+      border: 0;
+      cursor: pointer;
+      white-space: nowrap;
+      }
+
+      button.blue {
+        background: var(--nw-blue);
+        box-shadow: 0px 6px 0px white;
+        color: white;
+      }
+
+      .flex2 {
+        @apply --layout-flex-2;
+        max-width: calc(66%);
+        padding-right: 26px;
+      }
     </style>
 
 
     <div class="block blue" id="intro">
-      <section>
-        <header>
+      <section class="horizontal">
+        <header class="flex2">
           <h3>Als je niet in 100 woorden kunt vertellen wat je doet, word je nooit succesvol.</h3>
         </header>
-        <main></main>
-        <footer></footer>
+        <footer>
+          <button>O nee, help!</button>
+        </footer>
       </section>
     </div>
 
@@ -152,12 +186,13 @@
     </div>
 
     <div class="block blue" id="call-me">
-      <section>
-        <header>
+      <section class="horizontal">
+        <header class="flex2">
           <h3>Ja, ik wil een goed verhaal<br>bel met 06 - 48081027</h3>
         </header>
-        <main></main>
-        <footer></footer>
+        <footer>
+          <button>Of mail me</button>          
+        </footer>
       </section>
     </div>
 
@@ -170,7 +205,9 @@
           <article>
           Kan jij je product of dienst pitchen als geen ander, maar krijg je het niet goed op papier? Krijg je die website niet de lucht in omdat je met de teksten worstelt? Ben je net voor jezelf begonnen, maar snapt niemand wat je nu eigenlijk doet? Als het niet lukt om de missie, visie, of activiteiten van jouw organisatie of bedrijf goed te verwoorden, vraag mij er even bij. Ik schrijf jouw verhaal kernachtig op in een toon die bij je past. Dan doe ik waar ik goed in ben, en kan jij doen waar jij goed in bent.</article>
         </main>
-        <footer></footer>
+        <footer>
+          <button class="blue">Ik weet genoeg</button>          
+        </footer>
       </section>
     </div>
 
@@ -206,12 +243,13 @@
     </div>
 
     <div class="block blue" id="action">
-      <section>
-        <header>
+      <section class="horizontal">
+        <header class="flex2">
           <h3>En dat alles voor slechts een schamel €1250?</h3>
         </header>
-        <main></main>
-        <footer></footer>
+        <footer>
+          <button>Geen geld</button>
+        </footer>
       </section>
     </div>
 
@@ -273,7 +311,9 @@
           Wil je toch iets van een plan van aanpak en durf je me niet te bellen?<br>Stel je vraag en dan kom ik bij je terug.
           </article>
         </main>
-        <footer></footer>
+        <footer>
+          <button class="blue">Verstuur</button>          
+        </footer>
       </section>
     </div>
   </template>
