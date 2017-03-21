@@ -26,7 +26,7 @@
       }
 
 
-      h2, h3 {
+      h2, h3, h6 {
         @apply --sans-serif-base;
         margin: 0;
       }
@@ -39,6 +39,11 @@
       h3 {
         font-size: 32px;
         line-height: 1.4;
+      }
+
+      h6 {
+        font-size: 24px;
+        line-height: 1.5;
       }
 
       .block {
@@ -91,6 +96,38 @@
         line-height: 1.6;
         margin: 40px 0;
       }
+
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @apply --layout-horizontal;
+        justify-content: space-between;
+        margin: 40px 0;
+      }
+
+      li {
+        margin: 0;
+        padding: 0;
+        max-width: calc(33.3333% - 26px);
+        position: relative;
+      }
+
+      li article {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.6;
+      }
+
+      li:not(:first-child):before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        left: -18px;
+        background-color: white;
+        content: '';
+      }
     </style>
 
 
@@ -142,7 +179,28 @@
         <header>
           <h2>Dit krijg je</h2>
         </header>
-        <main></main>
+        <main>
+          <ol>
+            <li>
+              <h6>Stap 1</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>
+            <li>
+              <h6>Stap 2</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>
+            <li>
+              <h6>Stap 3</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>            
+          </ol>
+        </main>
         <footer></footer>
       </section>
     </div>
@@ -178,7 +236,28 @@
         <header>
           <h2>Hoe ziet dat eruit?</h2>
         </header>
-        <main></main>
+        <main>
+          <ol>
+            <li>
+              <h6>Case 1</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>
+            <li>
+              <h6>Case 2</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>
+            <li>
+              <h6>Case 3</h6>
+              <article>
+                Aan de hand van een interview onderzoek ik het wat en waarom van je organisatie en de toon die daarbij past.
+              </article>
+            </li>            
+          </ol>
+        </main>
         <footer></footer>
       </section>
     </div>
