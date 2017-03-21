@@ -330,20 +330,8 @@
       </paper-dialog>
 
     </template>
-    
 
-<!--     <div class="block blue" id="intro">
-      <section class="horizontal">
-        <header class="flex2">
-          <h3 contenteditable$="[[signedIn]]">{{siteContent.intro}}</h3>
-        </header>
-        <footer>
-          <button contenteditable$="[[signedIn]]">{{siteContent.introButton}}</button>
-        </footer>
-      </section>
-    </div> -->
-
-    <div class="block yellow large-padding" id="header">
+    <div class="block yellow large-padding" name="header">
       <section>
         <header>
           <need-words-logo></need-words-logo>
@@ -354,19 +342,19 @@
       </section>
     </div>
 
-    <div class="block blue" name="call-me">
+    <div class="block blue" id="call-me">
       <section class="horizontal">
         <header class="flex2">
           <h3 id="callMe" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
           <h3 id="callNumber" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callNumber}}</h3>
         </header>
         <footer>
-          <button id="callAlternative" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="callAlternative" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
         </footer>
       </section>
     </div>
 
-    <div class="block yellow" name="why">
+    <div class="block yellow" id="why">
       <section>
         <header>
           <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-input="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
@@ -377,12 +365,12 @@
           </article>
         </main>
         <footer>
-          <button id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
         </footer>
       </section>
     </div>
 
-    <div class="block grey double-padding" name="how">
+    <div class="block grey double-padding" id="how">
       <section>
         <header>
           <h2 id="howHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
@@ -419,7 +407,7 @@
           <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
         </header>
         <footer>
-          <button id="actionButton" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="actionButton" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
         </footer>
       </section>
     </div>
@@ -455,7 +443,7 @@
       </section>
     </div>
 
-    <div class="block" name="testimonials">
+    <div class="block" id="testimonials">
       <section>
         <content-slider
           style$="height:[[contentHeight]]px"
@@ -503,7 +491,7 @@
       </section>
     </div>
 
-    <div class="block green" name="about">
+    <div class="block green" id="about">
       <section>
         <header>
           <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
@@ -519,7 +507,7 @@
 
     <!-- foto -->
 
-    <div class="block grey" name="contact">
+    <div class="block grey" id="contact">
       <section>
 
 
@@ -540,7 +528,7 @@
 
           </main>
           <footer>
-            <button on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
+            <button data-anchor="#contact" on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
           </footer>
 
         </template>
@@ -656,13 +644,17 @@
 
       _sendMessage: function (evt) {
         var formData = {
-          name: this.$.contactName.value,
-          email: this.$.contactEmail.value,
-          message: this.$.contactMessage.value,          
+          name: this.$$('#contactName').value,
+          email: this.$$('#contactEmail').value,
+          message: this.$$('#contactMessage').value,          
         }
         this.messageSent = true;
         console.info('formData', formData);
         //push to firebase!
+      },
+
+      gotoAnchor: function(evt) {
+        location.href = evt.target.getAttribute('data-anchor');
       }
 
     });
