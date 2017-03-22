@@ -6,7 +6,7 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../bower_components/login-fire/login-fire.html">
+<link rel="import" href="../../bower_components/material-firebase-authentication/material-firebase-authentication.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
@@ -320,14 +320,12 @@
         >
 
         <template is="dom-if" if="[[!signedIn]]">
-          <login-fire
+          <material-firebase-authentication
             id="firebase-auth"
-            horizontal
-            email-password
-            no-sign-up
+            no-external-authentication
             user="{{user}}"
             signed-in="{{signedIn}}"
-          ></login-fire>
+          ></material-firebase-authentication>
         </template>
 
         <template is="dom-if" if="[[signedIn]]">
