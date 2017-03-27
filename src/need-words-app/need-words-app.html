@@ -64,7 +64,7 @@
           font-size: 60px;
         }
       }
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 768px) {
       h2{
           font-size: 24px;
         }
@@ -79,7 +79,7 @@
           font-size: 32px;
         }
       }      
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 768px) {
       h3{          
           font-size: 18px;
           text-align: center;
@@ -159,7 +159,7 @@
         @apply --layout-wrap;
       }
 
-      @media all and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
         .block section footer {
           width: 100%;
           align-content: center;
@@ -180,7 +180,7 @@
         font-size: 30px;          
         }
       }     
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 768px) {
         article{
         font-size: 18px;          
         }
@@ -201,7 +201,7 @@
         padding: 0;          
         position: relative;
       }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
       li {
         max-width: 100%;  
         padding-bottom: 24px;
@@ -215,7 +215,7 @@
         font-size: 24px;
         line-height: 1.6;
       }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
         ol li article {
           font-size: 14px;
         }
@@ -229,6 +229,12 @@
         left: -18px;
         background-color: white;
         content: '';
+      }
+
+      @media screen and (max-width: 768px) {
+        ol li:not(:first-child):before {
+          display: none;
+        }
       }
 
       button {
@@ -253,7 +259,7 @@
         outline: none;
       }
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
         button {
           font-size: 18px;
           height: 48px;
@@ -277,7 +283,7 @@
         max-width: calc(66%);
         padding-right: 26px;
       }
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 768px) {
         .flex2{
         max-width: 100%;
         }
@@ -314,7 +320,7 @@
           font-size: 48px;
         }
       }      
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
         blockquote {
           font-size: 24px;        
         }        
