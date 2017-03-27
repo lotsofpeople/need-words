@@ -1,20 +1,15 @@
 {
   "email_transport": {
-    "host": "<my.smtp.host>",
-    "port": 465,
-    "secure": true,
+    "service": "Gmail",
     "auth": {
-      "user": "<username>",
-      "pass": "<pass>"
-    },
-    "tls": {
-      "rejectUnauthorized": false
+      "user": "config.email",
+      "pass": "config.password"
     }
   },
-  "email_from": "<from_email>",
-  "email_to": "<to_email>",
-  "email_subject": "A message from your website bot",
-  "email_message_intro": "Hey, someone contacted you via your website:<br>",
-  "email_message_signature": "<br<br>Best, the Bot",
+  "email_from": "bot@woutervroege.nl",
+  "email_to": "wouter@woutervroege.nl",
+  "email_subject": "Nieuw bericht op need-words",
+  "email_message_intro": "Hallo Marieke,<br>er heeft iemand contact met je opgenomen op need-words.nl:",
+  "email_message_signature": "<br><br>Ok doei!<br>De bot",
   "database_ref_trigger": "/messages/{pushId}"
 }
