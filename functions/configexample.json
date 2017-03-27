@@ -1,20 +1,20 @@
 {
-    "email_transport": {
-        "host": "<my.smtp.host>",
-        "port": 465,
-        "secure": true,
-        "auth": {
-            "user": "<username>",
-            "pass": "<pass>"
-        },
-        "tls": {
-            "rejectUnauthorized": false
-        }     
+  "email_transport": {
+    "host": "<my.smtp.host>",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "<username>",
+      "pass": "<pass>"
     },
-    "email_from": "Your lovely need-words bot",
-    "email_to": "<to_email>",
-    "email_subject": "A message from your website bot",
-    "email_message_intro": "Hey, someone contacted you via your website:<br>",
-    "email_message_signature": "<br<br>Best, the Bot",
-    "database_ref_trigger": "/messages/{pushId}"
-};
+    "tls": {
+      "rejectUnauthorized": false
+    }
+  },
+  "email_from": "<from_email>",
+  "email_to": "<to_email>",
+  "email_subject": "A message from your website bot",
+  "email_message_intro": "Hey, someone contacted you via your website:<br>",
+  "email_message_signature": "<br<br>Best, the Bot",
+  "database_ref_trigger": "/messages/{pushId}"
+}
