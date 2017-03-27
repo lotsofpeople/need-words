@@ -10,7 +10,7 @@ function sendEmail(config, userName, userEmail, userMessage) {
 }
 
 function _getEmailConfig(config, userName, userEmail, userMessage) {
-    var styledMessage = userMessage.replace("/\n/g", " \n ");
+    var styledMessage = userMessage.replace(/\n/g, "<br>");
     return {
         from: config.email_from,
         to: config.email_to,
