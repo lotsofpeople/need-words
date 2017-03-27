@@ -440,6 +440,15 @@
       textarea {
         height: 131px;
       }
+
+      nav {
+        @apply --layout-horizontal;
+        @apply --layout-wrap;        
+        justify-content: space-between;        
+      }
+      nav p {
+        margin-left: 36px;
+      }
     </style>
 
     <app-location
@@ -457,6 +466,12 @@
       data="{{siteContent}}">
     </firebase-document>
 
+    <nav hidden$="[[!signedIn]]">
+      <p>Hoi Marieke!</p>
+      <paper-button on-tap="_signOut">Sign out</paper-button>
+    </nav>
+      
+
     <template is="dom-if" if="[[loginPageActive]]">
 
       <paper-dialog
@@ -473,10 +488,6 @@
             user="{{user}}"
             signed-in="{{signedIn}}"
           ></material-firebase-authentication>
-        </template>
-
-        <template is="dom-if" if="[[signedIn]]">
-          <p><paper-button on-tap="_signOut">Sign out</paper-button></p>
         </template>
 
       </paper-dialog>
@@ -806,6 +817,10 @@
 
       gotoAnchor: function(evt) {
         location.href = evt.target.getAttribute('data-anchor');
+      },
+
+      _signOut: function () {
+        this.$$('#firebase-auth').signOut();
       }
 
     });
