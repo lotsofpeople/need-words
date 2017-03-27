@@ -723,7 +723,7 @@
       },
 
       _updateTextOfSubproperty: function (evt) {
-        this.set('siteContent.' + evt.target.id, evt.srcElement.computedName)
+        this.set('siteContent.' + evt.target.id, evt.target.textContent)
       },
 
       _sendMessage: function (evt) {
