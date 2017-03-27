@@ -106,6 +106,12 @@
         margin-bottom: 56px;        
       }
 
+      @media screen and (max-width: 768px) {
+        .block:not(:last-of-type) {
+          margin-bottom: 28px;        
+        }        
+      }
+
       .block.yellow {
         background-color: var(--nw-yellow);
       }
@@ -113,6 +119,12 @@
       .block.blue {
         background-color: var(--nw-blue);
         border-color: var(--nw-darkblue);
+      }
+
+      @media screen and (max-width: 768px) {
+        .block.blue button {
+          margin-top: 20px;
+        }
       }
 
       .block.grey {
@@ -142,8 +154,20 @@
         padding: 24px 0 96px 0;
       }
 
+      @media screen and (max-width: 768px) {
+        .large-padding {
+          padding: 0 0 72px 0;
+        }        
+      }
+
       .double-padding {
         padding-bottom: 48px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .double-padding {
+          padding-bottom: 24px;
+        }
       }
 
       .block section {
@@ -152,7 +176,14 @@
         max-width: 1072px;
         padding: 40px 24px;
         @apply --layout-vertical;
-      } 
+      }
+
+      @media screen and (max-width: 768px) {
+        .block section {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
 
       .block section.horizontal {
         @apply --layout-horizontal;
@@ -175,6 +206,13 @@
         margin: 40px 0;
       }
 
+      @media screen and (max-width: 768px) {
+        article {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      }
+
       @media all and (min-width: 960px) {
         article{
         font-size: 30px;          
@@ -193,6 +231,13 @@
         @apply --layout-wrap;        
         justify-content: space-between;
         margin: 40px 0;
+      }
+
+      @media all and (max-width: 768px) {
+        ol {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
       }
 
       li {
@@ -291,6 +336,12 @@
 
       need-words-logo {
         margin-bottom: 96px;
+      }
+
+      @media screen and (max-width: 768px) {
+        need-words-logo {
+          margin-bottom: 48px;
+        }      
       }
 
       content-slider {
