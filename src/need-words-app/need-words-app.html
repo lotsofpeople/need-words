@@ -487,7 +487,7 @@
       <section>
         <header>
           <need-words-logo></need-words-logo>
-          <h2 id="header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.header}}</h2>
+          <h2 id="header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.header}}</h2>
         </header>
         <main></main>
         <footer></footer>
@@ -497,11 +497,11 @@
     <div class="block blue" id="call-me">
       <section class="horizontal">
         <header class="flex2">
-          <h3 id="callMe" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
-          <h3 id="callNumber" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callNumber}}</h3>
+          <h3 id="callMe" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
+          <h3 id="callNumber" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callNumber}}</h3>
         </header>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="callAlternative" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="callAlternative" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
         </footer>
       </section>
     </div>
@@ -509,15 +509,15 @@
     <div class="block yellow" id="why">
       <section>
         <header>
-          <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-input="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
+          <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-blur="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
         </header>
         <main>
-          <article id="whyArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+          <article id="whyArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
             {{siteContent.whyArticle}}
           </article>
         </main>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-blur="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
         </footer>
       </section>
     </div>
@@ -525,25 +525,25 @@
     <div class="block grey double-padding" id="how">
       <section>
         <header>
-          <h2 id="howHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
+          <h2 id="howHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6 id="step1Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step1Header}}</h6>
+              <h6 id="step1Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step1Header}}</h6>
               <article id="step1Article" contenteditable$="[[signedIn]]">
                 {{siteContent.step1Article}}
               </article>
             </li>
             <li>
-              <h6 id="step2Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step2Header}}</h6>
+              <h6 id="step2Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step2Header}}</h6>
               <article id="step2Article" contenteditable$="[[signedIn]]">
                 {{siteContent.step2Article}}
               </article>              
             </li>
             <li>
-              <h6 id="step3Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.step3Header}}</h6>
-              <article id="step3Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              <h6 id="step3Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step3Header}}</h6>
+              <article id="step3Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
                 {{siteContent.step3Article}}
               </article>                 
             </li>            
@@ -556,10 +556,10 @@
     <div class="block blue" name="action">
       <section class="horizontal">
         <header class="flex2">
-          <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
+          <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
         </header>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="actionButton" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
+          <button data-anchor="#contact" on-tap="gotoAnchor" id="actionButton" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
         </footer>
       </section>
     </div>
@@ -567,25 +567,25 @@
     <div class="block green" id="cases">
       <section>
         <header>
-          <h2 id="casesHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.casesHeader}}</h2>
+          <h2 id="casesHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.casesHeader}}</h2>
         </header>
         <main>
           <ol>
             <li>
-              <h6 id="case1Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case1Header}}</h6>
-              <article id="case1Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              <h6 id="case1Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case1Header}}</h6>
+              <article id="case1Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
                 {{siteContent.case1Article}}
               </article>
             </li>
             <li>
-              <h6 id="case2Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case2Header}}</h6>
-              <article id="case2Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              <h6 id="case2Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case2Header}}</h6>
+              <article id="case2Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
                 {{siteContent.case2Article}}
               </article>              
             </li>
             <li>
-              <h6 id="case3Header" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.case3Header}}</h6>
-              <article id="case3Article" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+              <h6 id="case3Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case3Header}}</h6>
+              <article id="case3Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
                 {{siteContent.case3Article}}
               </article>                  
             </li>            
@@ -605,28 +605,28 @@
           content-height="{{contentHeight}}"
         >
           <div>
-            <blockquote id="testimonial1" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial1}}</blockquote>
+            <blockquote id="testimonial1" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial1}}</blockquote>
             <need-words-avatar
               name="{{siteContent.testimonial1Name}}"
               image-url="{{siteContent.testimonial1PicUrl}}"
             ></need-words-avatar>            
           </div>
           <div>
-            <blockquote id="testimonial2" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial2}}</blockquote>
+            <blockquote id="testimonial2" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial2}}</blockquote>
             <need-words-avatar
               name="{{siteContent.testimonial2Name}}"
               image-url="{{siteContent.testimonial2PicUrl}}"
             ></need-words-avatar>
           </div>
           <div>
-            <blockquote id="testimonial3" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial3}}</blockquote>
+            <blockquote id="testimonial3" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial3}}</blockquote>
             <need-words-avatar
               name="{{siteContent.testimonial3Name}}"
               image-url="{{siteContent.testimonial3PicUrl}}"
             ></need-words-avatar>
           </div>
           <div>
-            <blockquote id="testimonial4" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.testimonial4}}</blockquote>
+            <blockquote id="testimonial4" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial4}}</blockquote>
             <need-words-avatar
               name="{{siteContent.testimonial4Name}}"
               image-url="{{siteContent.testimonial4PicUrl}}"
@@ -646,10 +646,10 @@
     <div class="block green" id="about">
       <section>
         <header>
-          <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
+          <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
         </header>
         <main>
-          <article id="aboutArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+          <article id="aboutArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
             {{siteContent.aboutArticle}}
           </article>
         </main>
@@ -664,13 +664,13 @@
 
 
         <header>
-          <h2 id="contactHeader" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">{{siteContent.contactHeader}}</h2>
+          <h2 id="contactHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.contactHeader}}</h2>
         </header>
 
         <template is="dom-if" if="[[!messageSent]]">
 
           <main>
-            <article id="contactArticle" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+            <article id="contactArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
               {{siteContent.contactArticle}}
             </article>
 
@@ -680,14 +680,14 @@
 
           </main>
           <footer>
-            <button data-anchor="#contact" on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-input="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
+            <button data-anchor="#contact" on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-blur="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
           </footer>
 
         </template>
 
         <template is="dom-if" if="[[messageSent]]">
           <main>
-            <article id="contactArticleSent" contenteditable$="[[signedIn]]" on-input="_updateTextOfSubproperty">
+            <article id="contactArticleSent" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
               {{siteContent.contactArticleSent}}
             </article>
           </main>
