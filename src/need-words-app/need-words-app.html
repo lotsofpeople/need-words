@@ -6,6 +6,8 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../bower_components/material-firebase-authentication/material-firebase-authentication.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase.html">
@@ -498,7 +500,10 @@
       <section>
         <header>
           <need-words-logo></need-words-logo>
-          <h2 id="header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.header}}</h2>
+          <h2 id="header">[[siteContent.header]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.header}}"></paper-input>
+          </template>
         </header>
         <main></main>
         <footer></footer>
@@ -508,11 +513,20 @@
     <div class="block blue" id="call-me">
       <section class="horizontal">
         <header class="flex2">
-          <h3 id="callMe" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callMe}}</h3>
-          <h3 id="callNumber" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callNumber}}</h3>
+          <h3 id="callMe">[[siteContent.callMe]]</h3>
+          <h3 id="callNumber">[[siteContent.callNumber]]</h3>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.callMe}}"></paper-input>
+          </template>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.callNumber}}"></paper-input>
+          </template>                    
         </header>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="callAlternative" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.callAlternative}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor">[[siteContent.callAlternative]]</button>          
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.callAlternative}}"></paper-input>
+          </template>                 
         </footer>
       </section>
     </div>
@@ -520,15 +534,26 @@
     <div class="block yellow" id="why">
       <section>
         <header>
-          <h2 id="whyHeader" contenteditable$="[[signedIn]]"  on-blur="_updateTextOfSubproperty">{{siteContent.whyHeader}}</h2>
+          <h2 id="whyHeader">[[siteContent.whyHeader]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.whyHeader}}"></paper-input>
+          </template>                      
         </header>
         <main>
-          <article id="whyArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-            {{siteContent.whyArticle}}
+          <article>
+            <marked-element contenteditable="true" markdown="[[siteContent.whyArticle]]">
+              <div class="markdown-html"></div>
+            </marked-element>            
           </article>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-textarea value="{{siteContent.whyArticle}}"></paper-textarea>
+          </template>                
         </main>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="whyButton" contenteditable$="[[signedIn]]" class="blue" on-blur="_updateTextOfSubproperty">{{siteContent.whyButton}}</button>          
+          <button data-anchor="#contact" on-tap="gotoAnchor" class="blue">[[siteContent.whyButton]]</button>          
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.whyButton}}"></paper-input>
+          </template>               
         </footer>
       </section>
     </div>
@@ -536,27 +561,54 @@
     <div class="block grey double-padding" id="how">
       <section>
         <header>
-          <h2 id="howHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.howHeader}}</h2>
+          <h2>[[siteContent.howHeader]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.howHeader}}"></paper-input>
+          </template>                        
         </header>
         <main>
           <ol>
             <li>
-              <h6 id="step1Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step1Header}}</h6>
-              <article id="step1Article" contenteditable$="[[signedIn]]">
-                {{siteContent.step1Article}}
+              <h6>[[siteContent.step1Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.step1Header}}"></paper-input>
+              </template>                   
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.step1Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                    
               </article>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.step1Article}}"></paper-textarea>
+              </template>                      
             </li>
             <li>
-              <h6 id="step2Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step2Header}}</h6>
-              <article id="step2Article" contenteditable$="[[signedIn]]">
-                {{siteContent.step2Article}}
+              <h6>[[siteContent.step2Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.step2Header}}"></paper-input>
+              </template>                                
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.step2Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                      
               </article>              
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.step2Article}}"></paper-textarea>
+              </template>                                    
             </li>
             <li>
-              <h6 id="step3Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.step3Header}}</h6>
-              <article id="step3Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-                {{siteContent.step3Article}}
-              </article>                 
+              <h6>[[siteContent.step3Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.step3Header}}"></paper-input>
+              </template>                                              
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.step3Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                          
+              </article>    
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.step3Article}}"></paper-textarea>
+              </template>                                                               
             </li>            
           </ol>
         </main>
@@ -567,10 +619,16 @@
     <div class="block blue" name="action">
       <section class="horizontal">
         <header class="flex2">
-          <h3 id="actionHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.actionHeader}}</h3>
+          <h3>[[siteContent.actionHeader]]</h3>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.actionHeader}}"></paper-input>
+          </template>                     
         </header>
         <footer>
-          <button data-anchor="#contact" on-tap="gotoAnchor" id="actionButton" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.actionButton}}</button>
+          <button data-anchor="#contact" on-tap="gotoAnchor">[[siteContent.actionButton]]</button>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.actionButton}}"></paper-input>
+          </template>                              
         </footer>
       </section>
     </div>
@@ -578,27 +636,54 @@
     <div class="block green" id="cases">
       <section>
         <header>
-          <h2 id="casesHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.casesHeader}}</h2>
+          <h2>[[siteContent.casesHeader]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.casesHeader}}"></paper-input>
+          </template>             
         </header>
         <main>
           <ol>
             <li>
-              <h6 id="case1Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case1Header}}</h6>
-              <article id="case1Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-                {{siteContent.case1Article}}
+              <h6>[[siteContent.case1Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.case1Header}}"></paper-input>
+              </template>                 
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.case1Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                                          
               </article>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.case1Article}}"></paper-textarea>
+              </template>                  
             </li>
             <li>
-              <h6 id="case2Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case2Header}}</h6>
-              <article id="case2Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-                {{siteContent.case2Article}}
+              <h6>[[siteContent.case2Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.case2Header}}"></paper-input>
+              </template>                     
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.case2Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                                                          
               </article>              
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.case2Article}}"></paper-textarea>
+              </template>                  
             </li>
             <li>
-              <h6 id="case3Header" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.case3Header}}</h6>
-              <article id="case3Article" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-                {{siteContent.case3Article}}
+              <h6>[[siteContent.case3Header]]</h6>
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-input value="{{siteContent.case3Header}}"></paper-input>
+              </template>                                   
+              <article>
+                <marked-element contenteditable="true" markdown="[[siteContent.case3Article]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                                                          
               </article>                  
+              <template is="dom-if" if="[[signedIn]]">
+                <paper-textarea value="{{siteContent.case3Article}}"></paper-textarea>
+              </template>                        
             </li>            
           </ol>
         </main>
@@ -610,38 +695,38 @@
       <section>
         <content-slider
           style$="height:[[contentHeight]]px"
-          current-index="{{currentTestimonialIndex}}"
-          number-of-slides="{{numberOfTestimonials}}"
+          current-index="{{currentTestimonialIndex]]"
+          number-of-slides="{{numberOfTestimonials]]"
           animation-duration="250"
-          content-height="{{contentHeight}}"
+          content-height="{{contentHeight]]"
         >
           <div>
-            <blockquote id="testimonial1" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial1}}</blockquote>
+            <blockquote>[[siteContent.testimonial1]]</blockquote>        
             <need-words-avatar
-              name="{{siteContent.testimonial1Name}}"
-              image-url="{{siteContent.testimonial1PicUrl}}"
-            ></need-words-avatar>            
+              name="[[siteContent.testimonial1Name]]"
+              image-url="[[siteContent.testimonial1PicUrl]]"
+            ></need-words-avatar>                                 
           </div>
           <div>
-            <blockquote id="testimonial2" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial2}}</blockquote>
+            <blockquote>[[siteContent.testimonial2]]</blockquote>                       
             <need-words-avatar
-              name="{{siteContent.testimonial2Name}}"
-              image-url="{{siteContent.testimonial2PicUrl}}"
-            ></need-words-avatar>
+              name="[[siteContent.testimonial2Name]]"
+              image-url="[[siteContent.testimonial2PicUrl]]"
+            ></need-words-avatar>                        
           </div>
           <div>
-            <blockquote id="testimonial3" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial3}}</blockquote>
+            <blockquote>[[siteContent.testimonial3]]</blockquote>
             <need-words-avatar
-              name="{{siteContent.testimonial3Name}}"
-              image-url="{{siteContent.testimonial3PicUrl}}"
-            ></need-words-avatar>
+              name="[[siteContent.testimonial3Name]]"
+              image-url="[[siteContent.testimonial3PicUrl]]"
+            ></need-words-avatar>                                   
           </div>
           <div>
-            <blockquote id="testimonial4" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.testimonial4}}</blockquote>
+            <blockquote>[[siteContent.testimonial4]]</blockquote>
             <need-words-avatar
-              name="{{siteContent.testimonial4Name}}"
-              image-url="{{siteContent.testimonial4PicUrl}}"
-            ></need-words-avatar>
+              name="[[siteContent.testimonial4Name]]"
+              image-url="[[siteContent.testimonial4PicUrl]]"
+            ></need-words-avatar>                                        
           </div>
         </content-slider>
 
@@ -651,18 +736,51 @@
         </template>
         </ul>
 
+        <template is="dom-if" if="[[signedIn]]">
+          <paper-textarea value="{{siteContent.testimonial1}}" label="Testimonial #1"></paper-textarea>
+
+          <paper-input value="{{siteContent.testimonial1Name}}" label="Naam van persoon testimonial #1"></paper-input>
+
+          <paper-input value="{{siteContent.testimonial1PicUrl}}" label="Url naar image testimonial #1"></paper-input>
+
+          <paper-textarea value="{{siteContent.testimonial2}}" label="Testimonial #2"></paper-textarea>
+
+          <paper-input value="{{siteContent.testimonial2Name}}" label="Naam van persoon testimonial #2"></paper-input>
+
+          <paper-input value="{{siteContent.testimonial2PicUrl}}" label="Url naar image testimonial #2"></paper-input>
+
+          <paper-textarea value="{{siteContent.testimonial3}}" label="Testimonial #3"></paper-textarea>
+
+          <paper-input value="{{siteContent.testimonial3Name}}" label="Naam van persoon testimonial #3"></paper-input>
+
+          <paper-input value="{{siteContent.testimonial3PicUrl}}" label="Url naar image testimonial #3"></paper-input>
+
+          <paper-textarea value="{{siteContent.testimonial4}}" label="Testimonial #4"></paper-textarea>
+
+          <paper-input value="{{siteContent.testimonial4Name}}" label="Naam van persoon testimonial #4"></paper-input>
+
+          <paper-input value="{{siteContent.testimonial4PicUrl}}" label="Url naar image testimonial #4"></paper-input>
+        </template>                                
       </section>
     </div>
 
     <div class="block green" id="about">
       <section>
         <header>
-          <h2 id="aboutHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.aboutHeader}}</h2>
+          <h2>[[siteContent.aboutHeader]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.aboutHeader}}"></paper-input>
+          </template>             
         </header>
         <main>
-          <article id="aboutArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-            {{siteContent.aboutArticle}}
+          <article>
+            <marked-element contenteditable="true" markdown="[[siteContent.aboutArticle]]">
+              <div class="markdown-html"></div>
+            </marked-element>                                                      
           </article>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-textarea value="{{siteContent.aboutArticle}}"></paper-textarea>
+          </template>              
         </main>
         <footer></footer>
       </section>
@@ -675,23 +793,35 @@
 
 
         <header>
-          <h2 id="contactHeader" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">{{siteContent.contactHeader}}</h2>
+          <h2>[[siteContent.contactHeader]]</h2>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.contactHeader}}"></paper-input>
+          </template>                    
         </header>
 
         <template is="dom-if" if="[[!messageSent]]">
 
           <main>
-            <article id="contactArticle" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-              {{siteContent.contactArticle}}
+            <article>
+              <marked-element contenteditable="true" markdown="[[siteContent.contactArticle]]">
+                <div class="markdown-html"></div>
+              </marked-element>                                          
             </article>
-
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-textarea value="{{siteContent.contactArticle}}"></paper-textarea>
+            <paper-textarea value="{{siteContent.contactArticleSent}}" label="Tekst voor als het bericht verstuurd is"></paper-textarea>
+          </template>               
+       
             <input type="text" placeholder="name" id="contactName">
             <input type="text" placeholder="email" id="contactEmail">
             <textarea placeholder="message" id="contactMessage"></textarea>
 
           </main>
           <footer>
-            <button data-anchor="#contact" on-tap="_sendMessage" id="contactButton" contenteditable$="[[signedIn]]" class="blue" on-blur="_updateTextOfSubproperty">{{siteContent.contactButton}}</button>
+            <button data-anchor="#contact" on-tap="_sendMessage" class="blue">[[siteContent.contactButton]]</button>
+          <template is="dom-if" if="[[signedIn]]">
+            <paper-input value="{{siteContent.contactButton}}"></paper-input>
+          </template>                 
           </footer>
 
         </template>
@@ -699,8 +829,10 @@
         <template is="dom-if" if="[[messageSent]]">
           <main>
             <article id="contactArticleSent" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-              {{siteContent.contactArticleSent}}
-            </article>
+                <marked-element contenteditable="true" markdown="[[siteContent.contactArticleSent]]">
+                  <div class="markdown-html"></div>
+                </marked-element>                                            
+            </article>                
           </main>
         </template>
 
@@ -801,10 +933,6 @@
         this.$$('#firebase-auth').signOut()
       },
 
-      _updateTextOfSubproperty: function (evt) {
-        this.set('siteContent.' + evt.target.id, evt.target.textContent)
-      },
-
       _sendMessage: function (evt) {
         var formData = {
           name: this.$$('#contactName').value,
@@ -816,7 +944,11 @@
       },
 
       gotoAnchor: function(evt) {
-        location.href = evt.target.getAttribute('data-anchor');
+        if(this.signedIn) {
+          evt.preventDefault();
+          console.log(evt)
+        }
+        // location.href = evt.target.getAttribute('data-anchor');
       },
 
       _signOut: function () {
@@ -826,3 +958,6 @@
     });
   </script>
 </dom-module>
+
+
+
