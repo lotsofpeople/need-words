@@ -541,7 +541,7 @@
         </header>
         <main>
           <article>
-            <marked-element contenteditable="true" markdown="[[siteContent.whyArticle]]">
+            <marked-element markdown="[[siteContent.whyArticle]]">
               <div class="markdown-html"></div>
             </marked-element>            
           </article>
@@ -574,7 +574,7 @@
                 <paper-input value="{{siteContent.step1Header}}"></paper-input>
               </template>                   
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.step1Article]]">
+                <marked-element markdown="[[siteContent.step1Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                    
               </article>
@@ -588,7 +588,7 @@
                 <paper-input value="{{siteContent.step2Header}}"></paper-input>
               </template>                                
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.step2Article]]">
+                <marked-element markdown="[[siteContent.step2Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                      
               </article>              
@@ -602,7 +602,7 @@
                 <paper-input value="{{siteContent.step3Header}}"></paper-input>
               </template>                                              
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.step3Article]]">
+                <marked-element markdown="[[siteContent.step3Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                          
               </article>    
@@ -649,7 +649,7 @@
                 <paper-input value="{{siteContent.case1Header}}"></paper-input>
               </template>                 
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.case1Article]]">
+                <marked-element markdown="[[siteContent.case1Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                                          
               </article>
@@ -663,7 +663,7 @@
                 <paper-input value="{{siteContent.case2Header}}"></paper-input>
               </template>                     
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.case2Article]]">
+                <marked-element markdown="[[siteContent.case2Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                                                          
               </article>              
@@ -677,7 +677,7 @@
                 <paper-input value="{{siteContent.case3Header}}"></paper-input>
               </template>                                   
               <article>
-                <marked-element contenteditable="true" markdown="[[siteContent.case3Article]]">
+                <marked-element markdown="[[siteContent.case3Article]]">
                   <div class="markdown-html"></div>
                 </marked-element>                                                          
               </article>                  
@@ -774,7 +774,7 @@
         </header>
         <main>
           <article>
-            <marked-element contenteditable="true" markdown="[[siteContent.aboutArticle]]">
+            <marked-element markdown="[[siteContent.aboutArticle]]">
               <div class="markdown-html"></div>
             </marked-element>                                                      
           </article>
@@ -803,7 +803,7 @@
 
           <main>
             <article>
-              <marked-element contenteditable="true" markdown="[[siteContent.contactArticle]]">
+              <marked-element markdown="[[siteContent.contactArticle]]">
                 <div class="markdown-html"></div>
               </marked-element>                                          
             </article>
@@ -828,8 +828,8 @@
 
         <template is="dom-if" if="[[messageSent]]">
           <main>
-            <article id="contactArticleSent" contenteditable$="[[signedIn]]" on-blur="_updateTextOfSubproperty">
-                <marked-element contenteditable="true" markdown="[[siteContent.contactArticleSent]]">
+            <article>
+                <marked-element markdown="[[siteContent.contactArticleSent]]">
                   <div class="markdown-html"></div>
                 </marked-element>                                            
             </article>                
